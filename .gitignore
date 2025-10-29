@@ -1,0 +1,62 @@
+# ---- Python / uv ----
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+*.egg
+.venv/
+uv.lock
+dist/
+build/
+
+# ---- Environment / Secrets ----
+.env
+.env.*
+*.env
+secrets.json
+cookies.json
+config.yaml
+credentials.json
+
+# ---- Logs / Temp ----
+*.log
+logs/
+tmp/
+temp/
+*.tmp
+*.bak
+
+# ---- Selenium / Chrome / Cache ----
+chromedriver*
+screenshots/
+error_*.png
+.cache/
+webdriver.log
+geckodriver.log
+
+# ---- Data outputs ----
+*.csv
+*.xlsx
+*.ics
+*.json
+*.db
+*.sqlite3
+
+# ---- OS / Editor junk ----
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+
+# ---- IDE / Editor ----
+.vscode/
+.idea/
+*.code-workspace
+*.iml
+
+# ---- GitHub Codespaces / Jupyter (optional) ----
+.ipynb_checkpoints/
+*.ipynb
