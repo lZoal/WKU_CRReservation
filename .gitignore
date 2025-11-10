@@ -13,7 +13,6 @@ build/
 
 # ---- Environment / Secrets ----
 .env
-.env.*
 *.env
 secrets.json
 cookies.json
