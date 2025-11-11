@@ -20,3 +20,24 @@ CREATE TABLE MAP_POINT (
 );
 
 CREATE UNIQUE INDEX idx_building_point ON MAP_POINT (build_id);
+
+-- 3. FLOOR 테이블 (건물의 층 정보)
+CREATE TABLE FLOOR (
+    floor_id SERIAL PRIMARY KEY,
+    build_id INT NOT NULL REFERENCES BUILDING(build_id),
+    floor_number INT NOT NULL, -- 층수 (예: 1, 2, 3). 지하층은 0, 옥상은 6 등으로 설정 가능
+    map_image_url VARCHAR(255) -- 층별 도면 이미지 URL (선택 사항)
+);
+
+-- 4. ROOM 테이블 (강의실/호실 정보 - 화장실, 계단 포함)
+CREATE TABLE ROOM (
+    room_id SERIAL PRIMARY KEY,
+    floor_id INT NOT NULL REFERENCES FLOOR(floor_id),
+    room_number VARCHAR(10) NOT NULL, -- 호실 번호 (예: 101호, W.C)
+    capacity INT, -- 수용 인원 (화장실, 계단 등은 NULL 또는 0)
+    room_type VARCHAR(50) -- 강의실, 실험실, 연구실, 화장실, 계단 등
+);
+
+-- 인덱스 추가 (새로 추가된 테이블의 빠른 검색을 위해)
+CREATE INDEX idx_floor_building ON FLOOR (build_id);
+CREATE INDEX idx_room_floor ON ROOM (floor_id);
