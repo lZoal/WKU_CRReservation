@@ -1,29 +1,9 @@
-좋아 👍
-여기 완전히 새로 정리한 README.md 최신본이야.
-env.example 기반 .env 생성 단계까지 포함했고,
-FastAPI + Crawler 실행 절차를 모두 통합했어.
 
 🏫 Smart Campus API (v0.3.0)
 
 FastAPI 기반 스마트 캠퍼스 강의실 관리 데모 시스템
 (빈 강의실 조회 · 일정 확인 · 예약 · 크롤러 CSV 주입)
 
-📦 프로젝트 구조
-WKU_CRReservation/
-├─ .venv/                              # uv 가상환경
-├─ backend/
-│  ├─ app/                             # FastAPI (Smart Campus API)
-│  │  ├─ main.py
-│  │  └─ ...
-│  ├─ smartcampus_crawler/             # 강의실 시간표 크롤러
-│  │  ├─ crawler.py
-│  │  ├─ site_selectors.py
-│  │  ├─ room_302.csv
-│  │  └─ ...
-│  └─ requirements.txt
-├─ frontend/                           # (선택) React / Vite 등
-├─ .env.example                        # 환경변수 템플릿
-└─ README.md
 
 ⚙️ 1. 환경 준비
 🧩 uv 가상환경 생성
@@ -37,7 +17,6 @@ uv pip install -r backend/requirements.txt
 🌱 2. .env 파일 생성
 
 .env.example 파일을 복사해서 .env를 만들어야 합니다.
-(.env는 로그인·URL 등 민감정보를 포함하므로 .gitignore 제외 처리 완료)
 
 # Windows PowerShell
 Copy-Item .\env.example .env
@@ -46,8 +25,6 @@ cp env.example .env
 
 
 이후 .env 파일을 열고 아래 값들을 채워주세요 👇
-
-키	설명	예시
 BASE_URL	로그인 페이지 URL	https://intra.wku.ac.kr/SWupis/V005/login.jsp
 TIMETABLE_URL	로그인 후 접근 가능한 “강의실 시간표” 직접 링크	https://intra.wku.ac.kr/SWupis/V005/lectureRoomTimetable.jsp
 PORTAL_ID	원광대학교 포털 ID	wku20231234
